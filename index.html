@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Chelimala Hemanth — Java Full Stack Developer and AI & Data Science graduate. Building robust web applications and intelligent systems."
+    />
+    <meta name="author" content="Chelimala Hemanth" />
+    <meta name="theme-color" content="#05070d" />
+
+    <title>Chelimala Hemanth | Java Full Stack Developer & AI Engineer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="intro-active">
+    <!-- Interactive Background Particle Canvas -->
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Interactive Custom Glowing Cursor -->
+    <div class="custom-cursor" id="customCursor" aria-hidden="true">
+      <div class="cursor-dot"></div>
+      <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- =========================================================
+       INTRO SCREEN
+    ========================================================== -->
+    <div class="intro-screen" id="introScreen">
+      <div class="intro-noise"></div>
+      <div class="intro-orb intro-orb-a"></div>
+      <div class="intro-orb intro-orb-b"></div>
+
+      <div class="intro-inner">
+        <div class="intro-photo-wrap">
+          <div class="intro-photo-ring"></div>
+          <img src="profile.jpg" alt="Chelimala Hemanth" class="intro-photo" />
+        </div>
+
+        <p class="intro-kicker">
+          <span></span>
+          DIGITAL PORTFOLIO · 2026
+        </p>
+
+        <h1 class="intro-name">
+          Chelimala
+          <span>Hemanth</span>
+        </h1>
+
+        <p class="intro-role">
+          Java Full Stack Developer
+          <b>•</b>
+          AI &amp; Data Science
+        </p>
+
+        <button class="enter-btn" id="enterBtn" type="button">
+          <span>ENTER PORTFOLIO</span>
+          <strong>↗</strong>
+        </button>
+      </div>
+
+      <div class="intro-bottom" id="introScrollBtn" role="button" tabindex="0">
+        <span>SCROLL OR CLICK TO EXPLORE</span>
+        <i></i>
+      </div>
+    </div>
+
+    <!-- =========================================================
+       HEADER
+    ========================================================== -->
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-wrap">
+        <a href="#home" class="logo" aria-label="Hemanth home">
+          <span class="logo-box">&lt;CH/&gt;</span>
+          Hemanth<span>.</span>
+        </a>
+
+        <div class="nav-right">
+          <!-- Theme Palette Selector -->
+          <div class="theme-picker" id="themePicker" title="Change Theme Accent">
+            <button class="theme-dot active" data-theme="violet" style="--t-color: #8067ff;" aria-label="Violet Theme"></button>
+            <button class="theme-dot" data-theme="cyan" style="--t-color: #45e2d0;" aria-label="Cyan Theme"></button>
+            <button class="theme-dot" data-theme="emerald" style="--t-color: #10b981;" aria-label="Emerald Theme"></button>
+            <button class="theme-dot" data-theme="amber" style="--t-color: #f59e0b;" aria-label="Amber Theme"></button>
+          </div>
+
+          <button
+            class="menu-btn"
+            id="menuBtn"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-controls="navLinks"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#certifications">Certifications</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- =======================================================
+         HERO
+      ======================================================== -->
+      <section class="hero section" id="home">
+        <div class="hero-grid container">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">
+              <span class="status-dot"></span>
+              Available for full-time opportunities
+            </div>
+
+            <h1>
+              I build
+              <span class="gradient-text">digital products</span><br />
+              as a <span class="typewriter-text" id="typewriter"></span><span class="type-cursor">|</span>
+            </h1>
+
+            <p class="hero-description">
+              AI &amp; Data Science graduate specializing in robust Java Full Stack
+              web applications, high-performance SQL databases, predictive machine learning models,
+              and responsive modern user interfaces.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                View Projects
+                <span>→</span>
+              </a>
+
+              <a href="resume.pdf" class="btn btn-secondary" id="downloadResumeBtn" download>
+                Download Resume
+                <span>↓</span>
+              </a>
+
+              <button type="button" class="btn btn-glass" id="copyEmailBtnHero" title="Click to copy email">
+                <span>📋 Copy Email</span>
+              </button>
+            </div>
+
+            <!-- Hero Live Stats Bar -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <strong class="counter" data-target="8.3">0</strong>
+                <small>B.Tech CGPA</small>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <strong class="counter" data-target="3">0</strong>
+                <small>Featured Projects</small>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <strong class="counter" data-target="2">0</strong>
+                <small>Tech Internships</small>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <strong>Top 2</strong>
+                <small>Dept Ranking</small>
+              </div>
+            </div>
+
+            <div class="hero-micro">
+              <span>JAVA</span>
+              <span>SERVLETS</span>
+              <span>JDBC</span>
+              <span>SQL</span>
+              <span>PYTHON</span>
+              <span>CNN / AI</span>
+              <span>FASTAPI</span>
+            </div>
+          </div>
+
+          <!-- 3D Interactive Hero Profile Card -->
+          <aside class="hero-card reveal" id="heroTiltCard">
+            <div class="card-shine" aria-hidden="true"></div>
+
+            <div class="hero-card-top">
+              <span class="hero-card-label">DEVELOPER PASSPORT</span>
+              <span class="hero-card-index">2026 // EDITION</span>
+            </div>
+
+            <div class="hero-avatar-wrap">
+              <div class="hero-avatar">CH</div>
+              <div class="hero-avatar-badge" title="Online / Open to Work"></div>
+            </div>
+
+            <h2>Chelimala Hemanth</h2>
+            <p class="hero-subline">Java Full Stack Developer · AI &amp; Data Science</p>
+
+            <div class="hero-info">
+              <div>
+                <small>CORE STACK</small>
+                <strong>Java · JDBC · SQL · Python · ML</strong>
+              </div>
+
+              <div>
+                <small>EDUCATION</small>
+                <strong>B.Tech — AI &amp; Data Science (8.3 CGPA)</strong>
+              </div>
+
+              <div>
+                <small>LOCATION</small>
+                <strong>Anantapur, Andhra Pradesh, India</strong>
+              </div>
+
+              <div>
+                <small>EXPERIENCE</small>
+                <strong>SmartBridge &amp; SkillDzire Intern</strong>
+              </div>
+            </div>
+
+            <div class="hero-card-line"></div>
+
+            <div class="hero-card-footer">
+              <span>BUILD · LEARN · INNOVATE</span>
+              <span>STATUS: READY</span>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-grid-lines" aria-hidden="true"></div>
+      </section>
+
+      <!-- =======================================================
+         ABOUT & INTERACTIVE CODE TERMINAL
+      ======================================================== -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">01 / ABOUT ME</span>
+            <h2>Developer mindset.<br /><em>Engineering discipline.</em></h2>
+            <p>
+              A passionate engineer bridging backend software systems, relational databases,
+              modern frontend interfaces, and artificial intelligence.
+            </p>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-statement reveal">
+              <div class="statement-badge">PROFILE SUMMARY</div>
+              <h3>Build.<br />Learn.<br /><strong>Improve.</strong></h3>
+              <p>Continuous evolution through real-world engineering.</p>
+              
+              <div class="about-highlights">
+                <div class="highlight-chip">
+                  <span class="chip-icon">⚡</span>
+                  <div>
+                    <strong>Full Stack Problem Solver</strong>
+                    <small>End-to-end architecture from DB to UI</small>
+                  </div>
+                </div>
+                <div class="highlight-chip">
+                  <span class="chip-icon">🧠</span>
+                  <div>
+                    <strong>AI &amp; Data-Driven</strong>
+                    <small>Deep learning CNNs &amp; predictive pipelines</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive IDE Terminal Window -->
+            <div class="terminal-card reveal" id="terminalCard">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red" title="Close"></span>
+                  <span class="dot yellow" title="Minimize"></span>
+                  <span class="dot green" title="Maximize"></span>
+                </div>
+                <div class="terminal-tabs">
+                  <button class="terminal-tab active" data-file="profile">
+                    <span class="tab-icon">📄</span> hemanth.json
+                  </button>
+                  <button class="terminal-tab" data-file="java">
+                    <span class="tab-icon">☕</span> TastyTap.java
+                  </button>
+                  <button class="terminal-tab" data-file="python">
+                    <span class="tab-icon">🐍</span> rice_classifier.py
+                  </button>
+                </div>
+                <button class="terminal-copy-btn" id="terminalCopyBtn" title="Copy code to clipboard" type="button">
+                  <span>📋 Copy</span>
+                </button>
+              </div>
+
+              <div class="terminal-content">
+                <!-- hemanth.json -->
+                <div class="terminal-pane active" id="codeProfile">
+                  <div class="line-numbers" aria-hidden="true">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+                  </div>
+                  <pre class="terminal-code"><code><span class="c-key">{</span>
+  <span class="c-str">"developer"</span>: <span class="c-val">"Chelimala Hemanth"</span>,
+  <span class="c-str">"degree"</span>: <span class="c-val">"B.Tech in Artificial Intelligence & Data Science"</span>,
+  <span class="c-str">"gpa"</span>: <span class="c-num">8.3</span>,
+  <span class="c-str">"strengths"</span>: [
+    <span class="c-val">"Java Full Stack Web Development"</span>,
+    <span class="c-val">"Database Design & SQL Optimization"</span>,
+    <span class="c-val">"Machine Learning & Computer Vision"</span>,
+    <span class="c-val">"FastAPI & RESTful APIs"</span>
+  ],
+  <span class="c-str">"mindset"</span>: <span class="c-val">"Writing clean, maintainable, scalable code"</span>,
+  <span class="c-str">"status"</span>: <span class="c-val">"Ready for immediate hire 🚀"</span>
+<span class="c-key">}</span></code></pre>
+                </div>
+
+                <!-- TastyTap.java -->
+                <div class="terminal-pane" id="codeJava">
+                  <div class="line-numbers" aria-hidden="true">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                  </div>
+                  <pre class="terminal-code"><code><span class="c-com">// TastyTap Food Delivery Engine</span>
+<span class="c-kw">public class</span> <span class="c-cls">OrderController</span> <span class="c-kw">extends</span> <span class="c-cls">HttpServlet</span> {
+    <span class="c-kw">private</span> <span class="c-cls">OrderDAO</span> orderDAO = <span class="c-kw">new</span> <span class="c-cls">OrderDAOImpl</span>();
+
+    <span class="c-ann">@Override</span>
+    <span class="c-kw">protected void</span> <span class="c-fn">doPost</span>(<span class="c-cls">HttpServletRequest</span> req, <span class="c-cls">HttpServletResponse</span> res) {
+        <span class="c-cls">Cart</span> cart = (<span class="c-cls">Cart</span>) req.getSession().getAttribute(<span class="c-str">"cart"</span>);
+        <span class="c-kw">boolean</span> placed = orderDAO.checkout(cart);
+        res.sendRedirect(placed ? <span class="c-str">"order-success.jsp"</span> : <span class="c-str">"cart.jsp?err=1"</span>);
+    }
+}</code></pre>
+                </div>
+
+                <!-- rice_classifier.py -->
+                <div class="terminal-pane" id="codePython">
+                  <div class="line-numbers" aria-hidden="true">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                  </div>
+                  <pre class="terminal-code"><code><span class="c-com"># Rice Variety Deep Learning CNN Pipeline</span>
+<span class="c-kw">import</span> tensorflow <span class="c-kw">as</span> tf
+<span class="c-kw">from</span> tensorflow.keras <span class="c-kw">import</span> layers, models
+
+<span class="c-kw">def</span> <span class="c-fn">build_rice_classifier</span>(input_shape=(224, 224, 3), classes=5):
+    model = models.Sequential([
+        layers.Conv2D(32, (3, 3), activation=<span class="c-str">'relu'</span>, input_shape=input_shape),
+        layers.MaxPooling2D((2, 2)),
+        layers.Conv2D(64, (3, 3), activation=<span class="c-str">'relu'</span>),
+        layers.MaxPooling2D((2, 2)),
+        layers.Flatten(),
+        layers.Dense(128, activation=<span class="c-str">'relu'</span>),
+        layers.Dense(classes, activation=<span class="c-str">'softmax'</span>)
+    ])
+    <span class="c-kw">return</span> model</code></pre>
+                </div>
+              </div>
+
+              <!-- Terminal Footer Bar -->
+              <div class="terminal-footer">
+                <span class="footer-branch">main*</span>
+                <span class="footer-lang" id="terminalLang">JSON</span>
+                <span class="footer-encoding">UTF-8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+         SKILLS
+      ======================================================== -->
+      <section class="section section-alt" id="skills">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">02 / TECHNICAL TOOLKIT</span>
+            <h2>The tools behind<br /><em>the work.</em></h2>
+            <p>
+              A well-rounded technical foundation spanning enterprise backend development,
+              relational database design, and machine learning architectures.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-card reveal">
+              <span class="skill-number">01</span>
+              <div class="skill-icon">☕</div>
+              <h3>Java Full Stack</h3>
+              <p>Core Java, OOP, Advanced Java, Servlets, JDBC, MVC Architecture.</p>
+              <div class="tag-list">
+                <span>Core Java</span>
+                <span>Advanced Java</span>
+                <span>OOP</span>
+                <span>JDBC</span>
+                <span>Servlets</span>
+              </div>
+            </article>
+
+            <article class="skill-card reveal">
+              <span class="skill-number">02</span>
+              <div class="skill-icon">🌐</div>
+              <h3>Frontend &amp; UI</h3>
+              <p>Modern semantic web standards, responsive layouts, interactive styling.</p>
+              <div class="tag-list">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Responsive Design</span>
+              </div>
+            </article>
+
+            <article class="skill-card reveal">
+              <span class="skill-number">03</span>
+              <div class="skill-icon">🗄️</div>
+              <h3>Databases &amp; SQL</h3>
+              <p>Relational database modeling, complex joins, indexing, and data normalization.</p>
+              <div class="tag-list">
+                <span>SQL</span>
+                <span>MySQL</span>
+                <span>Queries</span>
+                <span>Schema Design</span>
+              </div>
+            </article>
+
+            <article class="skill-card reveal">
+              <span class="skill-number">04</span>
+              <div class="skill-icon">📊</div>
+              <h3>Data &amp; Analytics</h3>
+              <p>Statistical processing, data transformation, and visual reporting dashboards.</p>
+              <div class="tag-list">
+                <span>Power BI</span>
+                <span>Microsoft Excel</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+              </div>
+            </article>
+
+            <article class="skill-card reveal">
+              <span class="skill-number">05</span>
+              <div class="skill-icon">🤖</div>
+              <h3>AI &amp; Machine Learning</h3>
+              <p>Computer vision CNNs, classification models, Scikit-learn, prompt engineering.</p>
+              <div class="tag-list">
+                <span>Python</span>
+                <span>TensorFlow / CNN</span>
+                <span>Scikit-learn</span>
+                <span>Prompt Eng.</span>
+              </div>
+            </article>
+
+            <article class="skill-card reveal">
+              <span class="skill-number">06</span>
+              <div class="skill-icon">🛠️</div>
+              <h3>Tools &amp; Workflow</h3>
+              <p>Modern version control, rapid prototyping, terminal workflows, and deployment.</p>
+              <div class="tag-list">
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>VS Code</span>
+                <span>FastAPI / Uvicorn</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+         PROJECTS & FILTERING
+      ======================================================== -->
+      <section class="section projects-section" id="projects">
+        <div class="container">
+          <div class="section-heading projects-heading reveal">
+            <span class="section-kicker">03 / SELECTED WORK</span>
+            <h2>Projects that turn<br /><em>ideas into products.</em></h2>
+            <p>
+              Explore real-world software applications built with clean architecture,
+              database integration, deep learning pipelines, and responsive interfaces.
+            </p>
+          </div>
+
+          <!-- Interactive Filter Tabs -->
+          <div class="project-filters reveal">
+            <button class="filter-btn active" data-filter="all" type="button">All Projects (3)</button>
+            <button class="filter-btn" data-filter="fullstack" type="button">Java Full Stack (1)</button>
+            <button class="filter-btn" data-filter="ai" type="button">AI &amp; Machine Learning (2)</button>
+          </div>
+
+          <div class="projects-grid">
+            <!-- TASTYTAP -->
+            <article class="project-card project-blue reveal" data-category="fullstack">
+              <div class="project-card-glow"></div>
+
+              <div class="project-top">
+                <span>01 / FULL STACK</span>
+                <b>WEB APP</b>
+              </div>
+
+              <div class="project-visual">
+                <div class="visual-grid"></div>
+                <div class="project-symbol">🍔</div>
+                <small>JAVA · SERVLETS · JDBC · MYSQL</small>
+              </div>
+
+              <div class="project-content">
+                <span class="project-type">FOOD DELIVERY PLATFORM</span>
+                <h3>TastyTap</h3>
+                <p>
+                  A responsive online food delivery application with user authentication,
+                  restaurant discovery, menu management, interactive cart, and order placement.
+                </p>
+
+                <div class="project-tags">
+                  <span>Java</span>
+                  <span>Servlets</span>
+                  <span>JDBC</span>
+                  <span>MySQL</span>
+                  <span>JavaScript</span>
+                </div>
+
+                <div class="project-actions">
+                  <a
+                    class="project-link"
+                    href="https://github.com/heman2662777"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+
+                  <button
+                    class="details-btn"
+                    type="button"
+                    data-project="tastytap"
+                  >
+                    Details <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- RICE CLASSIFICATION -->
+            <article class="project-card project-purple reveal" data-category="ai">
+              <div class="project-card-glow"></div>
+
+              <div class="project-top">
+                <span>02 / AI &amp; ML</span>
+                <b>CNN / VISION</b>
+              </div>
+
+              <div class="project-visual">
+                <div class="visual-grid"></div>
+                <div class="project-symbol">🌾</div>
+                <small>PYTHON · TENSORFLOW · CNN · FLASK</small>
+              </div>
+
+              <div class="project-content">
+                <span class="project-type">COMPUTER VISION</span>
+                <h3>Rice Classification AI</h3>
+                <p>
+                  A deep learning computer vision model to identify 5 rice grain varieties
+                  from image inputs with automated preprocessing and confidence scoring.
+                </p>
+
+                <div class="project-tags">
+                  <span>Python</span>
+                  <span>TensorFlow</span>
+                  <span>CNN</span>
+                  <span>OpenCV</span>
+                  <span>Flask</span>
+                </div>
+
+                <div class="project-actions">
+                  <a
+                    class="project-link"
+                    href="https://github.com/hemanth2662777/Rice-Classification-AI-Model"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+
+                  <button class="details-btn" type="button" data-project="rice">
+                    Details <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- CREDIT SCORE PREDICTOR -->
+            <article class="project-card project-green reveal" data-category="ai">
+              <div class="project-card-glow"></div>
+
+              <div class="project-top">
+                <span>03 / DATA &amp; ML</span>
+                <b>FASTAPI / ML</b>
+              </div>
+
+              <div class="project-visual">
+                <div class="visual-grid"></div>
+                <div class="project-symbol">📊</div>
+                <small>PYTHON · SCIKIT-LEARN · FASTAPI</small>
+              </div>
+
+              <div class="project-content">
+                <span class="project-type">PREDICTIVE ANALYTICS</span>
+                <h3>Credit Score Predictor</h3>
+                <p>
+                  A machine learning predictive risk assessment engine for customer creditworthiness
+                  evaluation with real-time FastAPI scoring pipeline.
+                </p>
+
+                <div class="project-tags">
+                  <span>Python</span>
+                  <span>Scikit-learn</span>
+                  <span>FastAPI</span>
+                  <span>Pandas</span>
+                  <span>MySQL</span>
+                </div>
+
+                <div class="project-actions">
+                  <a
+                    class="project-link"
+                    href="https://github.com/hemanth2662777/Credit_Loan_Rise_Assessment"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
+
+                  <button
+                    class="details-btn"
+                    type="button"
+                    data-project="credit"
+                  >
+                    Details <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+         EXPERIENCE
+      ======================================================== -->
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">04 / EXPERIENCE</span>
+            <h2>Practical exposure.<br /><em>Real learning.</em></h2>
+            <p>Industry internship experience and technical project delivery.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">INTERNSHIP · 2024</div>
+              <h3>AI &amp; Machine Learning Intern</h3>
+              <h4>SmartBridge (APSCHE)</h4>
+              <span class="timeline-stack">Python · Scikit-learn · Pandas · NumPy</span>
+
+              <ul>
+                <li>Developed machine learning models using Python and Scikit-learn for automated decision workflows.</li>
+                <li>Conducted end-to-end data preprocessing, missing value handling, feature scaling, and model evaluation.</li>
+                <li>Applied analytical modeling to real-world datasets with high predictive accuracy and structured documentation.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">INTERNSHIP · 2023</div>
+              <h3>Quantum Computing Intern</h3>
+              <h4>SkillDzire (APSCHE)</h4>
+              <span class="timeline-stack">Quantum Computing · Quantum Gates · Quantum Algorithms</span>
+
+              <ul>
+                <li>Studied quantum mechanical principles in computing: qubits, quantum entanglement, and superposition states.</li>
+                <li>Explored quantum gates, circuit design, and quantum algorithmic complexity advantages over classical architectures.</li>
+                <li>Gained deep analytical insight into next-generation computational paradigms and simulation tooling.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+         EDUCATION
+      ======================================================== -->
+      <section class="section section-alt" id="education">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">05 / EDUCATION</span>
+            <h2>Academic<br /><em>foundation.</em></h2>
+            <p>Formal engineering training and consistent academic excellence.</p>
+          </div>
+
+          <div class="education-grid">
+            <article class="education-card reveal">
+              <span>2022 — 2026</span>
+              <h3>B.Tech — AI &amp; Data Science</h3>
+              <p>Kandula Obul Reddy Memorial College of Engineering, Kadapa</p>
+              <strong>CGPA: 8.3 / 10 (Top 2 Performer)</strong>
+            </article>
+
+            <article class="education-card reveal">
+              <span>2020 — 2022</span>
+              <h3>Intermediate — MPC</h3>
+              <p>Swamy Vivekananda Junior College, Anantapur</p>
+              <strong>Percentage: 77.5%</strong>
+            </article>
+
+            <article class="education-card reveal">
+              <span>2020</span>
+              <h3>Secondary School Certificate</h3>
+              <p>Z.P. High School, Peddapappur</p>
+              <strong>Percentage: 92.66%</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+         CERTIFICATIONS & AWARDS
+      ======================================================== -->
+      <section class="section" id="certifications">
+        <div class="container">
+          <div class="section-heading reveal">
+            <span class="section-kicker">06 / RECOGNITION</span>
+            <h2>Certifications &amp;<br /><em>achievements.</em></h2>
+            <p>Verified professional competencies and academic milestones.</p>
+          </div>
+
+          <div class="cert-grid">
+            <article class="cert-card reveal">
+              <span class="cert-badge">CERTIFIED</span>
+              <h3>Artificial Intelligence &amp; Machine Learning</h3>
+              <p>SmartBridge &amp; APSCHE Professional Certification</p>
+            </article>
+
+            <article class="cert-card reveal">
+              <span class="cert-badge">CERTIFIED</span>
+              <h3>Big Data Computing</h3>
+              <p>NPTEL &amp; Ministry of Education</p>
+            </article>
+
+            <article class="cert-card reveal">
+              <span class="cert-badge">CERTIFIED</span>
+              <h3>Quantum Computing Essentials</h3>
+              <p>SkillDzire &amp; APSCHE Technical Certification</p>
+            </article>
+
+            <article class="cert-card reveal">
+              <span class="cert-badge award">ACADEMIC HONORS</span>
+              <h3>Top 2 Performer</h3>
+              <p>Ranked among the Top 2 academic performers in the B.Tech AI &amp; Data Science program.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+         CONTACT & QUICK FORM
+      ======================================================== -->
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="contact-card reveal">
+            <span class="section-kicker">07 / GET IN TOUCH</span>
+
+            <h2>
+              Let's build something<br />
+              <em>extraordinary together.</em>
+            </h2>
+
+            <p>
+              I am actively looking for software engineering roles in Java full-stack development,
+              backend systems, and AI/Data Science. Reach out directly or connect via social links.
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:hemanth2662n@gmail.com" class="btn btn-primary" id="emailActionBtn">
+                Email: hemanth2662n@gmail.com
+                <span>↗</span>
+              </a>
+
+              <button type="button" class="btn btn-secondary" id="copyEmailBtn">
+                <span>📋 Copy Email</span>
+              </button>
+
+              <a
+                href="https://linkedin.com/in/hemanth-chelimala-a55b79253"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+              >
+                LinkedIn ↗
+              </a>
+
+              <a
+                href="https://github.com/heman2662777"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+              >
+                GitHub ↗
+              </a>
+            </div>
+
+            <!-- Quick Interactive Message Box -->
+            <div class="quick-contact-wrap">
+              <form class="quick-form" id="quickForm" onsubmit="return false;">
+                <div class="form-inputs">
+                  <input type="text" id="senderName" placeholder="Your Name" required />
+                  <input type="email" id="senderEmail" placeholder="Your Email" required />
+                </div>
+                <textarea id="senderMsg" rows="3" placeholder="Write your message or inquiry..." required></textarea>
+                <button type="submit" class="btn btn-primary form-submit-btn" id="formSubmitBtn">
+                  <span>Send Message Directly</span>
+                  <strong>↗</strong>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+       FOOTER
+    ========================================================== -->
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>
+          © <span id="year"></span> <strong>Chelimala Hemanth</strong>. Engineered with modern HTML5, CSS3 &amp; Vanilla JavaScript.
+        </p>
+        <p class="footer-status">
+          <span class="pulse-dot"></span> Open to Full-Stack &amp; AI Engineering Roles
+        </p>
+      </div>
+    </footer>
+
+    <!-- Floating Back to Top with Circular Scroll Progress Ring -->
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Scroll back to top">
+      <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+        <circle class="progress-ring-bg" cx="24" cy="24" r="20"></circle>
+        <circle class="progress-ring-circle" id="scrollProgressCircle" cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span class="arrow-up">↑</span>
+    </button>
+
+    <!-- =========================================================
+       PROJECT DETAILS POPUP
+    ========================================================== -->
+    <div class="project-popup" id="projectPopup" aria-hidden="true">
+      <div class="popup-backdrop" id="popupBackdrop"></div>
+
+      <div
+        class="popup-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popupTitle"
+      >
+        <button
+          class="popup-close"
+          id="popupClose"
+          type="button"
+          aria-label="Close project details"
+        >
+          ×
+        </button>
+
+        <div class="popup-header">
+          <div class="popup-number" id="popupNumber">01</div>
+
+          <div>
+            <span class="popup-category" id="popupCategory">FULL STACK</span>
+            <h2 id="popupTitle">Project</h2>
+            <p id="popupIntro">Project introduction.</p>
+          </div>
+        </div>
+
+        <div class="popup-body">
+          <section class="popup-detail">
+            <div class="detail-index">01</div>
+            <div>
+              <h3>Project Overview</h3>
+              <p id="popupOverview"></p>
+            </div>
+          </section>
+
+          <section class="popup-detail">
+            <div class="detail-index">02</div>
+            <div>
+              <h3>Objective</h3>
+              <p id="popupObjective"></p>
+            </div>
+          </section>
+
+          <section class="popup-detail">
+            <div class="detail-index">03</div>
+            <div>
+              <h3>Technologies Used</h3>
+              <div class="popup-tech-list" id="popupTech"></div>
+            </div>
+          </section>
+
+          <section class="popup-detail">
+            <div class="detail-index">04</div>
+            <div>
+              <h3>Key Features</h3>
+              <ul class="popup-features" id="popupFeatures"></ul>
+            </div>
+          </section>
+
+          <section class="popup-detail">
+            <div class="detail-index">05</div>
+            <div>
+              <h3>Workflow Pipeline</h3>
+              <div class="popup-workflow" id="popupWorkflow"></div>
+            </div>
+          </section>
+
+          <section class="popup-detail">
+            <div class="detail-index">06</div>
+            <div>
+              <h3>Result &amp; Impact</h3>
+              <p id="popupResult"></p>
+            </div>
+          </section>
+        </div>
+
+        <div class="popup-footer">
+          <a
+            href="#"
+            id="popupLaunch"
+            class="popup-launch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Launch Live Project</span>
+            <strong>↗</strong>
+          </a>
+
+          <a
+            href="#"
+            id="popupGithub"
+            class="popup-github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub ↗
+          </a>
+
+          <button
+            class="popup-close-bottom"
+            id="popupCloseBottom"
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
